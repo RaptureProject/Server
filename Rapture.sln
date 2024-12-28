@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D2B8BBC7-DCE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rapture.AppHost", "src\AppHost\Rapture.AppHost.csproj", "{611BC7D0-0DA2-46AC-843E-6D6FE8981FEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rapture.Web", "src\Web\Rapture.Web.csproj", "{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +19,16 @@ Global
 		{611BC7D0-0DA2-46AC-843E-6D6FE8981FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{611BC7D0-0DA2-46AC-843E-6D6FE8981FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{611BC7D0-0DA2-46AC-843E-6D6FE8981FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{611BC7D0-0DA2-46AC-843E-6D6FE8981FEB} = {D2B8BBC7-DCE7-4BA9-AEA1-59BD146B5A72}
+		{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B} = {D2B8BBC7-DCE7-4BA9-AEA1-59BD146B5A72}
 	EndGlobalSection
 EndGlobal

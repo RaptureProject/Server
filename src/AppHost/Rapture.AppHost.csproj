@@ -13,4 +13,8 @@
     <PackageReference Include="Aspire.Hosting.AppHost" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Web\Rapture.Web.csproj" />
+  </ItemGroup>
+
 </Project>

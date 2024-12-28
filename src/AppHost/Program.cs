@@ -3,4 +3,7 @@
 
 var builder = DistributedApplication.CreateBuilder(args);
 
+builder.AddProject<Projects.Rapture_Web>("web")
+    .WithHttpEndpoint(name: "version", port: 54996);
+
 builder.Build().Run();
