@@ -5,6 +5,6 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 builder.AddProject<Projects.Rapture_Web>("web")
     .WithHttpHealthCheck(path: "/health", endpointName: "version")
-    .WithHttpEndpoint(name: "version", port: 54996);
+    .WithHttpEndpoint(name: "version", port: 54996, isProxied: false);
 
 builder.Build().Run();
