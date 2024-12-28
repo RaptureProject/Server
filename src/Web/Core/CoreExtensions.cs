@@ -25,7 +25,9 @@ public static class CoreExtensions
         builder.ConfigureTelemetry()
             .ConfigureHealthChecks()
             .ConfigureServiceDiscovery()
-            .ConfigureHttpClient();
+            .ConfigureHttpClient()
+            .ConfigureOpenApi()
+            .ConfigureControllers();
 
         return builder;
     }
@@ -37,7 +39,9 @@ public static class CoreExtensions
     /// <returns>The <see cref="WebApplication"/> to continue adding middleware to.</returns>
     public static WebApplication UseCore(this WebApplication app)
     {
-        app.UseHealthChecks();
+        app.UseHealthChecks()
+            .UseOpenApi()
+            .UseControllers();
 
         return app;
     }
@@ -115,5 +119,56 @@ public static class CoreExtensions
         });
 
         return builder;
+    }
+
+    private static IHostApplicationBuilder ConfigureOpenApi(this IHostApplicationBuilder builder)
+    {
+        builder.Services.AddOpenApi(options =>
+        {
+            options.AddDocumentTransformer((document, context, candellationToken) =>
+            {
+                document.Info.Title = "Rapture";
+                document.Info.Description = "A Final Fantasy XIV 1.23b server emulator.";
+                document.Info.TermsOfService = new("https://github.com/RaptureProject/Server/blob/main/CODE_OF_CONDUCT.md");
+
+                document.Info.Contact = new()
+                {
+                    Name = "Rapture Project",
+                    Email = "community@raptureproject.com",
+                    Url = new("https://github.com/RaptureProject/Server")
+                };
+
+                document.Info.License = new()
+                {
+                    Name = "MIT License",
+                    Url = new("https://github.com/RaptureProject/Server/blob/main/LICENSE.txt")
+                };
+
+                return Task.CompletedTask;
+            });
+        });
+
+        return builder;
+    }
+
+    private static WebApplication UseOpenApi(this WebApplication app)
+    {
+        app.MapOpenApi();
+
+        return app;
+    }
+
+    private static IHostApplicationBuilder ConfigureControllers(this IHostApplicationBuilder builder)
+    {
+        builder.Services.AddControllers();
+
+        return builder;
+    }
+
+    private static WebApplication UseControllers(this WebApplication app)
+    {
+        app.MapControllers();
+
+        return app;
     }
 }
