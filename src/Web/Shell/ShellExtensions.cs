@@ -19,7 +19,7 @@ public static class ShellExtensions
     {
         app.MapScalarApiReference(options =>
         {
-            options.WithTitle("Rapture Project");
+            options.WithTitle("Rapture");
             options.HideClientButton = true;
         });
 
