@@ -1,7 +1,6 @@
 ﻿// Licensed to the Rapture Project under one or more agreements.
 // The Rapture Project licenses this file to you under the MIT license.
 
-using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using OpenTelemetry;
@@ -72,12 +71,6 @@ public static class CoreExtensions
         {
             builder.Services.AddOpenTelemetry()
                 .UseOtlpExporter();
-        }
-
-        if (!string.IsNullOrWhiteSpace(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]))
-        {
-            builder.Services.AddOpenTelemetry()
-                .UseAzureMonitor();
         }
 
         return builder;
