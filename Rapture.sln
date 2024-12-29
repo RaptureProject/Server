@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rapture.AppHost", "src\AppH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rapture.Web", "src\Web\Rapture.Web.csproj", "{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rapture.Database", "src\Database\Rapture.Database.csproj", "{970E7316-391B-4866-B038-B03334245795}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rapture.Migrator", "src\Migrator\Rapture.Migrator.csproj", "{C7B8DEF2-281A-43C3-85CF-5C00F2878146}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{970E7316-391B-4866-B038-B03334245795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{970E7316-391B-4866-B038-B03334245795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{970E7316-391B-4866-B038-B03334245795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{970E7316-391B-4866-B038-B03334245795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B8DEF2-281A-43C3-85CF-5C00F2878146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B8DEF2-281A-43C3-85CF-5C00F2878146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B8DEF2-281A-43C3-85CF-5C00F2878146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B8DEF2-281A-43C3-85CF-5C00F2878146}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{611BC7D0-0DA2-46AC-843E-6D6FE8981FEB} = {D2B8BBC7-DCE7-4BA9-AEA1-59BD146B5A72}
 		{E1FDFA83-A5ED-4CFA-BEE1-913F7CA6106B} = {D2B8BBC7-DCE7-4BA9-AEA1-59BD146B5A72}
+		{970E7316-391B-4866-B038-B03334245795} = {D2B8BBC7-DCE7-4BA9-AEA1-59BD146B5A72}
+		{C7B8DEF2-281A-43C3-85CF-5C00F2878146} = {D2B8BBC7-DCE7-4BA9-AEA1-59BD146B5A72}
 	EndGlobalSection
 EndGlobal

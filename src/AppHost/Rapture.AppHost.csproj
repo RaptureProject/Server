@@ -11,9 +11,11 @@
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Migrator\Rapture.Migrator.csproj" />
     <ProjectReference Include="..\Web\Rapture.Web.csproj" />
   </ItemGroup>
 
