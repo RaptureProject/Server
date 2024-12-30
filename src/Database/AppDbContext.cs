@@ -8,21 +8,13 @@ namespace Rapture.Database;
 /// <summary>
 /// The application database context.
 /// </summary>
-public class AppDbContext : DbContext
+public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    /// <summary>
-    /// Creates a <see cref="AppDbContext"/> instance.
-    /// </summary>
-    /// <param name="options">The <see cref="DbContextOptions{TContext}"/> to use.</param>
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-    {
-        AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
-    }
-
     /// <inheritdoc/>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasPostgresExtension("citext");
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
 
     /// <inheritdoc/>
