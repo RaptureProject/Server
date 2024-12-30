@@ -25,8 +25,7 @@ public static class CoreExtensions
             .ConfigureHealthChecks()
             .ConfigureServiceDiscovery()
             .ConfigureHttpClient()
-            .ConfigureOpenApi()
-            .ConfigureControllers();
+            .ConfigureOpenApi();
 
         return builder;
     }
@@ -39,8 +38,7 @@ public static class CoreExtensions
     public static WebApplication UseCore(this WebApplication app)
     {
         app.UseHealthChecks()
-            .UseOpenApi()
-            .UseControllers();
+            .UseOpenApi();
 
         return app;
     }
@@ -152,20 +150,6 @@ public static class CoreExtensions
     private static WebApplication UseOpenApi(this WebApplication app)
     {
         app.MapOpenApi();
-
-        return app;
-    }
-
-    private static IHostApplicationBuilder ConfigureControllers(this IHostApplicationBuilder builder)
-    {
-        builder.Services.AddControllers();
-
-        return builder;
-    }
-
-    private static WebApplication UseControllers(this WebApplication app)
-    {
-        app.MapControllers();
 
         return app;
     }
