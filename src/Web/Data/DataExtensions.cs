@@ -1,6 +1,7 @@
 ﻿// Licensed to the Rapture Project under one or more agreements.
 // The Rapture Project licenses this file to you under the MIT license.
 
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Rapture.Database;
 
 namespace Rapture.Web.Data;
@@ -17,7 +18,13 @@ public static class DataExtensions
     /// <returns>The <see cref="IHostApplicationBuilder"/> to continue adding configuration to.</returns>
     public static IHostApplicationBuilder ConfigureData(this IHostApplicationBuilder builder)
     {
-        builder.AddNpgsqlDbContext<AppDbContext>("ffxiv");
+        builder.AddNpgsqlDbContext<AppDbContext>("ffxiv", configureDbContextOptions: options =>
+        {
+            options.ConfigureWarnings(warnings =>
+            {
+                warnings.Throw(RelationalEventId.MultipleCollectionIncludeWarning);
+            });
+        });
 
         return builder;
     }
