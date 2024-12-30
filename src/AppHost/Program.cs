@@ -5,7 +5,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var dbPassword = builder.AddParameter("DatabasePassword", true);
 
-var db = builder.AddPostgres("db", password: dbPassword)
+var db = builder.AddPostgres("db", password: dbPassword, port: 56422)
     .WithLifetime(ContainerLifetime.Persistent)
     .WithPgAdmin(config =>
     {
