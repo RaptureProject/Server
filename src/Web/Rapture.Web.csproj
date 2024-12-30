@@ -23,4 +23,8 @@
     <PackageReference Include="Scalar.AspNetCore" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Rapture.Database.csproj" />
+  </ItemGroup>
+
 </Project>
