@@ -1,0 +1,11 @@
+###############################
+# EF Core Migrations Rules    #
+###############################
+
+[*.{cs,vb}]
+
+# CA1861: Avoid constant arrays as arguments
+dotnet_diagnostic.CA1861.severity = silent
+
+# IDE0300: Collection initialization can be simplified
+dotnet_diagnostic.IDE0300.severity = silent
