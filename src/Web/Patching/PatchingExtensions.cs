@@ -31,9 +31,13 @@ public static class PatchingExtensions
     public static WebApplication UsePatching(this WebApplication app)
     {
         VersionCheckEndpoint.Configure(app);
+        AnnounceEndpoint.Configure(app);
 
         app.UseWhen(
-            context => !context.Request.Path.StartsWithSegments("/patch"),
+            context => !(context.Request.Path.StartsWithSegments("/openapi") ||
+                         context.Request.Path.StartsWithSegments("/scalar") ||
+                         context.Request.Path.StartsWithSegments("/patch") ||
+                         context.Request.Path.StartsWithSegments("/announce")),
             builder => builder.UseHttpsRedirection());
 
         return app;

@@ -4,6 +4,7 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 var dbPassword = builder.AddParameter("DatabasePassword", true);
+var patchHost = builder.AddParameter("PatchServer", true);
 
 var db = builder.AddPostgres("db", password: dbPassword, port: 56422)
     .WithLifetime(ContainerLifetime.Persistent)
@@ -18,6 +19,7 @@ builder.AddProject<Projects.Rapture_Migrator>("migrator")
     .WaitFor(db);
 
 builder.AddProject<Projects.Rapture_Web>("web")
+    .WithEnvironment("services__patch__default__0", patchHost)
     .WithHttpHealthCheck(path: "/health", endpointName: "http")
     .WithHttpEndpoint(name: "http", port: 8080, isProxied: false)
     .WithHttpsEndpoint(name: "https", port: 8443, isProxied: false)
