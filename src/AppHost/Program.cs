@@ -18,8 +18,9 @@ builder.AddProject<Projects.Rapture_Migrator>("migrator")
     .WaitFor(db);
 
 builder.AddProject<Projects.Rapture_Web>("web")
-    .WithHttpHealthCheck(path: "/health", endpointName: "version")
-    .WithHttpEndpoint(name: "version", port: 54996, isProxied: false)
+    .WithHttpHealthCheck(path: "/health", endpointName: "http")
+    .WithHttpEndpoint(name: "http", port: 8080, isProxied: false)
+    .WithHttpsEndpoint(name: "https", port: 8443, isProxied: false)
     .WithReference(db)
     .WaitFor(db);
 

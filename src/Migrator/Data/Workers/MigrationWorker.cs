@@ -81,9 +81,7 @@ public partial class MigrationWorker : BackgroundService
 
         await strategy.ExecuteAsync(async () =>
         {
-            // Enable once tables are added.
-            await Task.Delay(5, cancellationToken);
-            //await dbContext.Database.MigrateAsync(cancellationToken);
+            await dbContext.Database.MigrateAsync(cancellationToken);
         });
     }
 }

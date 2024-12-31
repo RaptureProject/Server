@@ -2,6 +2,7 @@
 // The Rapture Project licenses this file to you under the MIT license.
 
 using Microsoft.EntityFrameworkCore;
+using Rapture.Database.Entities.Patching;
 
 namespace Rapture.Database;
 
@@ -10,6 +11,31 @@ namespace Rapture.Database;
 /// </summary>
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
+    /// <summary>
+    /// The patch platforms.
+    /// </summary>
+    public DbSet<PatchPlatform> PatchPlatforms => Set<PatchPlatform>();
+
+    /// <summary>
+    /// The patch channels.
+    /// </summary>
+    public DbSet<PatchChannel> PatchChannels => Set<PatchChannel>();
+
+    /// <summary>
+    /// The patch types.
+    /// </summary>
+    public DbSet<PatchType> PatchTypes => Set<PatchType>();
+
+    /// <summary>
+    /// The patch repositories.
+    /// </summary>
+    public DbSet<PatchRepository> PatchRepositories => Set<PatchRepository>();
+
+    /// <summary>
+    /// The patch versions.
+    /// </summary>
+    public DbSet<PatchVersion> PatchVersions => Set<PatchVersion>();
+
     /// <inheritdoc/>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
