@@ -20,7 +20,6 @@ builder.AddProject<Projects.Rapture_Migrator>("migrator")
 
 builder.AddProject<Projects.Rapture_Web>("web")
     .WithEnvironment("services__patch__default__0", patchHost)
-    .WithHttpHealthCheck(path: "/health", endpointName: "http")
     .WithHttpEndpoint(name: "http", port: 8080, isProxied: false)
     .WithHttpsEndpoint(name: "https", port: 8443, isProxied: false)
     .WithReference(db)
